@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import '../App.css';
 
 class AddStop extends Component { 
     constructor(props){
@@ -34,7 +35,8 @@ class AddStop extends Component {
     render(){
         return(
             <div> 
-                <h2>Add A New Stop</h2>
+                <h2 >Add A New Stop</h2>
+                <section className = 'perm-inputs'>
                 <input placeholder = 'Enter Stop Name'
                     name = 'name' 
                     value = {this.state.name}
@@ -48,6 +50,7 @@ class AddStop extends Component {
                     value = {this.state.stateName}
                     onChange = {event => this.handleChange(event)}/>
                 <button onClick = {() => this.addNewStop()}>Add Stop</button>
+                </section>
             </div>
         )
     }
