@@ -12,7 +12,10 @@ const Stops = (props) => {
                         key = {element.id}
                         name = {element.name}
                         date = {element.date}
-                        stateName = {element.stateName} />
+                        id = {element.id}
+                        stateName = {element.stateName} 
+                        editStopFn = {props.editStopFn}
+                        deleteStopFn = {props.deleteStopFn} />
                     )
                 })}
 

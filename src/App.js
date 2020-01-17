@@ -14,6 +14,8 @@ class App extends Component{
       
     }
     this.newStop = this.newStop.bind(this)
+    this.editStop = this.editStop.bind(this)
+    this.deleteStop = this.deleteStop.bind(this)
   }
 
   componentDidMount(){
@@ -28,13 +30,27 @@ class App extends Component{
     }).catch(err => console.log(err))
   }
 
+  editStop(id, body){
+    axios.put(`/api/stop/${id}`, body).then(res => {
+      this.setState({stops: res.data})
+    }).catch(err => console.log(err))
+  }
+
+  deleteStop(id){
+    axios.delete(`/api/stop/${id}`).then(res => {
+      this.setState({stops: res.data})
+    }).catch(err => console.log(err))
+  }
+
   render(){
     return (
       <div className="App">
           <Header/>
           <AddStop    
             newStopFn = {this.newStop}/>
-          <Stops stops = {this.state.stops}/> 
+          <Stops stops = {this.state.stops} 
+          editStopFn = {this.editStop} 
+          deleteStopFn= {this.deleteStop}/> 
       </div>
     );
   }

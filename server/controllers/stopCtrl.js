@@ -18,10 +18,10 @@ module.exports = {
     },
     editStop: (req, res) => {
         const {id} = req.params; 
-        const {name,state,date} = req.body; 
+        const {name,stateName,date} = req.body; 
         const index = stops.findIndex(element => element.id === +id);
         stops[index].name = name; 
-        stops[index].state = state; 
+        stops[index].stateName = stateName; 
         stops[index].date = date; 
         res.status(200).send(stops)
     },
