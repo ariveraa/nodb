@@ -10,7 +10,8 @@ class App extends Component{
     super()
     this.state = {
 
-        stops:[]
+        stops:[],
+        parks: []
       
     }
     this.newStop = this.newStop.bind(this)
@@ -22,6 +23,8 @@ class App extends Component{
     axios.get('/api/stops').then(res => {
       this.setState({stops: res.data})
     }).catch(err => console.log(err))
+
+ 
   }
 
   newStop(body){
@@ -43,6 +46,7 @@ class App extends Component{
   }
 
   render(){
+    console.log(this.state.parks)
     return (
       <div className="App">
           <Header/>

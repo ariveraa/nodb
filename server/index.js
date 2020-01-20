@@ -6,6 +6,8 @@ const express = require('express'),
 app.use(cors()); 
 app.use(express.json()); 
 
+//endpoints 
+
 app.get('/api/stops',stopCtrl.getAllStops);
 app.post('/api/stop', stopCtrl.addStop);
 app.put('/api/stop/:id', stopCtrl.editStop); 

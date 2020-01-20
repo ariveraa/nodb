@@ -37,6 +37,7 @@ class Stop extends Component{
     render(){
         const {name,date,stateName} = this.props;
         return(
+            
             <div className = 'stop-box'> 
                {!this.state.toggleEdit? (
                    <div id = 'data-box'>
@@ -48,7 +49,7 @@ class Stop extends Component{
                 <button id = 'box-buttons' onClick = {this.toggleEditMenu}>Edit</button>
               
                 <button id = 'box-buttons' onClick = {() => this.props.deleteStopFn(this.props.id)}>Delete</button>
-                
+            
               </div>
               {this.state.toggleEdit? (
                     <div id = 'edit-box'>
