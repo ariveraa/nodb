@@ -37,30 +37,36 @@ class Stop extends Component{
     render(){
         const {name,date,stateName} = this.props;
         return(
-            <div> 
-                <h3>{name}</h3>
-                <p>{date}</p>
-                <p>{stateName}</p>
-                <button onClick = {this.toggleEditMenu}>Edit</button>
-                {this.state.toggleEdit? (
-                    <div>
+            <div className = 'stop-box'> 
+               {!this.state.toggleEdit? (
+                   <div id = 'data-box'>
+                    <h3>{name}</h3>
+                    <p>{date}</p>
+                    <p>{stateName}</p>
+                    </div> ):null}
+              <div className = 'button-box'>
+                <button id = 'box-buttons' onClick = {this.toggleEditMenu}>Edit</button>
+              
+                <button id = 'box-buttons' onClick = {() => this.props.deleteStopFn(this.props.id)}>Delete</button>
+                
+              </div>
+              {this.state.toggleEdit? (
+                    <div id = 'edit-box'>
                         <a>Enter New Name</a>
-                        <input placeholder= {name} 
+                        <input className = 'edit-input' placeholder= {name} 
                         name= 'nameInput'
                         onChange = {event => this.handleInput(event)}/>
-                        <a>Enter New Date</a>
-                        <input  placeholder = {date}
+                        <a>Enter New Date/Time</a>
+                        <input className = 'edit-input'  placeholder = {date}
                         name = 'dateInput'
                         onChange = {event => this.handleInput(event)}/>
-                        <a>Enter New State</a>
-                        <input placeholder = {stateName} 
+                        <a>Enter New State/City</a>
+                        <input className = 'edit-input' placeholder = {stateName} 
                         name = 'stateNameInput'
                         onChange = {event => this.handleInput(event)}/>
-                        <button onClick ={this.editStop}>Submit</button>
+                        <button id = 'edit-submit' onClick ={this.editStop}>Submit</button>
                     </div>
                 ):null}
-                <button onClick = {() => this.props.deleteStopFn(this.props.id)}>Delete</button>
-
             </div>
         )
     }

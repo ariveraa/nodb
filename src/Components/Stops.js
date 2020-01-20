@@ -5,7 +5,7 @@ const Stops = (props) => {
           
         return(
             
-            <div>
+            <div id = 'stops-box'>
                 {props.stops.map((element) => {
                     return(
                         <Stop

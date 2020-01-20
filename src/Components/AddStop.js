@@ -41,11 +41,11 @@ class AddStop extends Component {
                     name = 'name' 
                     value = {this.state.name}
                     onChange = {event => this.handleChange(event)}/> 
-                <input placeholder='Enter Date of Stop'
+                <input placeholder='Enter Date/Time of Stop'
                     name = 'date'
                     value = {this.state.date}
                     onChange = {event => this.handleChange(event)}/>
-                <input placeholder = 'Enter State of Stop'
+                <input placeholder = 'Enter State/City of Stop'
                     name = 'stateName'
                     value = {this.state.stateName}
                     onChange = {event => this.handleChange(event)}/>
